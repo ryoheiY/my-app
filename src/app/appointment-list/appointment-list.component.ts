@@ -21,14 +21,17 @@ export class AppointmentListComponent {
     }
 
     alert("Input!!")
-    this.appointments = [ {
+    this.appointments.push({
       id : ++this.count,
       title: this.newAppointmentTitle,
       date: this.newAppointmentDate
-    },...this.appointments]
+    })
 
     this.newAppointmentTitle = "";
     this.newAppointmentDate = undefined;
   }
 
+  handleDelete(index: number){
+    this.appointments.splice(index, 1);
+  }
 }
