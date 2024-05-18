@@ -1,0 +1,10 @@
+<div>
+    <input [(ngModel)]="newAppointmentTitle" type="text" placeholder="descriptiton">
+    <input [(ngModel)]="newAppointmentDate" type="date" placeholder="date">
+    <button (click)="handleAdd()">Add</button>
+</div>
+<div *ngFor="let appointment of appointments">
+  <h1>{{ appointment.id }}</h1>
+  <h1>{{ appointment.title }}</h1>
+  <h1>{{ appointment.date }}</h1>
+</div>
