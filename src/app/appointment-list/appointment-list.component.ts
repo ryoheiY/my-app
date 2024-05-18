@@ -9,18 +9,26 @@ import { Appointment } from '../models/appointment';
 export class AppointmentListComponent {
   count = 0;
   newAppointmentTitle :string = "";
-  newAppointmentDate: Date = new Date();
+  newAppointmentDate: Date | undefined = undefined;
 
   appointments :Appointment[] = []; 
 
   handleAdd(){
+
+    if(this.newAppointmentTitle.trim().length == 0 || !this.newAppointmentDate){
+      alert("No!")
+      return;
+    }
+
     alert("Input!!")
-    this.count++;
     this.appointments = [ {
-      id : this.count,
+      id : ++this.count,
       title: this.newAppointmentTitle,
       date: this.newAppointmentDate
     },...this.appointments]
+
+    this.newAppointmentTitle = "";
+    this.newAppointmentDate = undefined;
   }
 
 }
